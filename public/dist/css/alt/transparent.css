@@ -1,0 +1,45 @@
+html,
+body,
+header,
+.view {
+  height: 100%;
+}
+.rgba-gradient {
+    background: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(125, 144, 15, 0.4) 100%);
+    background: -webkit-linear-gradient(linear, 45deg, from(rgba(0, 0, 0, 0.7), rgba(125, 144, 15, 0.4) 100%));
+    background: linear-gradient(to 45deg, rgba(0, 0, 0, 0.7), rgba(125, 144, 15, 0.4) 100%);
+  }
+  /* .rgba-gradient {
+    background: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);
+    background: -webkit-linear-gradient(linear, 45deg, from(rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%));
+    background: linear-gradient(to 45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);
+  } */
+.card {
+    /* background-color: rgba(126, 123, 215, 0.2); */
+    background-color: rgba(42, 79, 109, 0.5);
+  }
+
+  .border-3 {
+    -webkit-border-radius: 0px 40px 0px 0px;
+-moz-border-radius: 0px 40px 0px 0px;
+border-radius: 0px 40px 0px 0px;
+border: 3px groove #A48D1D;
+border-radius: 0px 40px 0px 0px;
+   
+  }
+
+  .input {
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  .navhead {
+    -webkit-box-shadow: 5px 5px 9px 1px #000000; 
+    box-shadow: 5px 5px 9px 1px #000000;
+    background: #207DBA;
+    }
+    body#tinymce {
+    background: #FFFFFF
+    }
