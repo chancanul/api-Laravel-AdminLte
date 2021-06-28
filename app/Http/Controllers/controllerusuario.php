@@ -13,7 +13,7 @@ class controllerusuario extends Controller
      * @param Request $request recibe los parámetros dentro la petición post.
      */
      public function validar(Request $request) {
-         $respuesta;
+         $respuesta="";
         $filtro = apiusuarios::where('usuario','=',$request->usuario, 'and')->where('password', '=', $request->password)->first();
         if($filtro != null) {
            // $respuesta = 'ok';
@@ -53,7 +53,7 @@ class controllerusuario extends Controller
         $usuario->apellido_m = $request->input('apellido_m');
         $usuario->usuario = $request->input('usuario');
         $usuario->password = $request->input('password');
-       
+
 
         if($request->hasfile('imagen')) {
             $imagen = $request->file('imagen')->store('img', 'public');
@@ -107,7 +107,7 @@ class controllerusuario extends Controller
             return response()->json("sin imagen", 200);
         }
 
-       
+
     }
 
     /**
