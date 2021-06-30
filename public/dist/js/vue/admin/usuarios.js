@@ -30,6 +30,7 @@ function init(){
             auxIdUsuario:"",
             editar:false,
             check:false,
+            loading:false,
         },
         methods:{
             /**
@@ -40,17 +41,21 @@ function init(){
              * @param {*} id 
              */
             getUsuarios:function(id){
+                this.loading=true;
                 if(id != 0) { //si es distinto a cero trae a todos los usuarios
                     this.$http.get(route + urlUsuarios + "/" + id).then
                         (function(response){
                         console.log(response);
                         this.arrUsuarios = response.data;
+                        this.loading=false;
                     })
                 } else {
                     this.$http.get(route + urlUsuarios).then
                     (function(response){
+                        this.loading=true;
                         console.log(response);
                         this.arrUsuarios = response.data;
+                        this.loading=false;
                     })
                 }
                
@@ -71,11 +76,10 @@ function init(){
             editUser:function(id) {
                 this.editar = true;
                 //this.getRoles;
+               
                 this.getUsuarios(id);
-                console.log(usuario.nombre);
-            
+               if (!this.loading) {
                 for (var usuario in this.arrUsuarios) {
-                    console.log(usuario.nombre);
                 this.id_usuario = usuario.id_usuario;
                 this.id_rol = usuario.id_rol;
                 this.nombre = usuario.nombre;
@@ -84,9 +88,12 @@ function init(){
                 this.usuario = usuario.usuario;
                 this.password = usuario.password;
                 this.imagen = usuario.imagen;
-                }
-                
                 this.showModal(true);
+                }
+               }
+               
+                
+                
             },
             showModal:function(bool){
                 if (bool == true) {

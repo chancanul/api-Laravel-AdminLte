@@ -11,21 +11,21 @@
             
                 <div class="card-body">
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div v-if="!loading" class="form-group col-md-6">
                             <label for="exampleUsuario">Clave Usuario</label>
                             <input disabled type="text" class="form-control" id="exampleUsuario" v-model="id_usuario">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div v-if="!loading" class="form-group col-md-6">
                             <label for="examplenombre">Nombre</label>
                             <input type="text" class="form-control" id="examplenombre" v-model="nombre" placeholder="Nombre/s">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div v-if="!loading" class="form-group col-md-6">
                             <label for="exampleapellidop">Apellido Paterno</label>
                             <input type="text" class="form-control" id="exampleapellidop" v-model="apellido_p" placeholder="Apellido Paterno">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div v-if="!loading" class="form-group col-md-6">
                             <label for="exampleapellidom">Apellido Materno</label>
                             <input type="text" class="form-control" id="exampleapellidom" v-model="apellido_m" placeholder="Apellido Materno">
                         </div>
@@ -42,11 +42,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div v-if="!loading" class="form-group col-md-6">
                             <label for="exampleusuario">Usuario</label>
                             <input type="text" class="form-control" id="exampleusuario" v-model="usuario" placeholder="Usuario">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div v-if="!loading" class="form-group col-md-6">
                             <label for="examplepassword">Password</label>
                             <input type="password" class="form-control" id="exampleapassword" v-model="password" placeholder="Password">
                         </div>
