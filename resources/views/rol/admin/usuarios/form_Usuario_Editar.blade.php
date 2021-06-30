@@ -23,7 +23,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-       
+
              <!-- general form elements -->
              <div class="card card-primary">
                 <div class="card-header">
@@ -78,25 +78,25 @@
                           <span class="input-group-text" id="">Upload</span>
                         </div>
                       </div>
-                      
-                      
+
+
                     </div>
                   </div>
                   <!-- /.card-body -->
-  
+
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Guardar</button>
                   </div>
                 </form>
               </div>
               <!-- /.card -->
-  
-             
-        
 
-          
+
+
+
+
         </div>
-      
+
       </div>
       <!-- /.row -->
     </div><!-- /.container-fluid -->

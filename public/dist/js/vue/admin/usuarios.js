@@ -83,22 +83,17 @@ function init(){
             },
             newUser:function() {
                 this.showModal(true);
+                this.limpiarData();
             },
             editUser:function(id) {
                 this.editar = true;
                 this.getRoles;
-
                 this.getUsuarios(id);
-
-
-
-
             },
             showModal:function(bool){
                 if (bool == true) {
                     $('#ventana_modal').modal('show');//Mostrar un venta modal
                 } else {
-                    this.Vacio();
 				    $('#ventana_modal').modal('hide');
                 }
 
@@ -106,10 +101,20 @@ function init(){
 
 			Cancelar:function(){
 				//debugger;
-				this.Vacio();
-				$('#ventana_modal').modal('hide');
+				this.limpiarData();
+				this.showModal(false);
 
 			},
+            limpiarData:function() {
+                this.id_usuario = "";
+                this.id_rol = "";
+                this.nombre = "";
+                this.apellido_p = "";
+                this.apellido_m = "";
+                this.usuario = "";
+                this.password = "";
+                this.imagen = "";
+            }
         } // fin methods
 
     })
