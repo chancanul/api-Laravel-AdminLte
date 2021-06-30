@@ -33,7 +33,7 @@
                                       </form>
                                     </div>
                                   </div><!--card-header-->
-                                  
+
                                   <div class="card-body table-responsive p-0">
                                     <table class="table table-hover text-nowrap">
                                       <thead>
@@ -67,7 +67,7 @@
                                               <td>@{{ users.password }}</td>
                                               <td>
                                                 {{--<img class="img-thumbnail" src="{{ URL::asset('storage'.'/'.'app'.'/'.'public'.users.imagen)}}" alt="" width="50">--}}
-                                                <img v-bind:src="`${rutaImagenes}/${users.imagen}`" class="img-thumbnail" alt="" width="50">
+                                                {{--<img v-bind:src="`${rutaImagenes}/${users.imagen}`" class="img-thumbnail" alt="" width="50">--}}
                                               </td>
                                               <td>
                                                      <button v-on:click="editUser(users.id_usuario)" class="btn btn-active"><i class="fa fa-user-edit"></i></button>
@@ -78,7 +78,7 @@
                                     </table>
                                   </div>
                           </div><!-- card -->
-                  </div><!--col-lg-12-->    
+                  </div><!--col-lg-12-->
               </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div> <!-- content -->

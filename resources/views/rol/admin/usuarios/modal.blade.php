@@ -1,5 +1,5 @@
 <div data-controls-modal="your_div_id" data-backdrop="static" data-keyboard="false"
-    class="modal fade" tabindex="-1" role="dialog" id="ventana_modal">  
+    class="modal fade" tabindex="-1" role="dialog" id="ventana_modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -8,7 +8,7 @@
                     <h3 class="card-title" v-if="!editar">Proporcionar datos del usuario (Alta)</h3>
                     <h3 class="card-title" v-if="editar">Proporcionar datos del usuario (Modificar)</h3>
                 </div>
-            
+
                 <div class="card-body">
                     <div class="row">
                         <div v-if="!loading" class="form-group col-md-6">
@@ -38,7 +38,7 @@
                             </select>
                         </div>
                         <div v-if="editar" class="col-md-6 text-center">
-                            <img class="rounded-circle" v-bind:src="`${urlImages}/${imagen}`" alt="" width="100">
+                            {{--<img class="rounded-circle" v-bind:src="`${urlImages}/${imagen}`" alt="" width="100">--}}
                         </div>
                     </div>
                     <div class="row">
@@ -65,10 +65,10 @@
                             </div>
                         </div>
                     </div>
-                </div>   
+                </div>
             </div> {{--Fin de card-primary--}}
       </div>{{--fin modal-body--}}
-      <div class="modal-footer">      
+      <div class="modal-footer">
             <button type="button" class="btn btn-danger active" data-dismiss="modal" v-on:click="showModal(false)">Cancelar</button>
 
             <button type="submit" class="btn btn-primary active" v-on:click="agregarUsuario()" v-if="!editar" >Guardar</button>

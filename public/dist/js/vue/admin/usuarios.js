@@ -12,10 +12,11 @@ function init(){
         el:'#viewUsuarios',
         created:function(){
             this.getUrlImagen(); //Trae la url de las imagenes definidas dentro Vue, debe ocurrir primero para asignar la Url o el path de la imágenes.
-            this.getUsuarios(0); 
+            this.getUsuarios(0);
         },
         data:{
             arrUsuarios:[],
+            arrSingleUserById:[],
             arrRoles:[],
             id_usuario:"",
             id_rol:"",
@@ -36,9 +37,9 @@ function init(){
             /**
              * función para traer el listado de usurios dentro la BD, recibe un parámetro para indicar el tipo de acción
              * si el id es distinto a cero entonces solo se consulta a un usuario de acuerdo al id proporcionado,
-             *  si es cero se listan a todos los usuarios. De igual manera si es igual a cero entonces los usuarios 
+             *  si es cero se listan a todos los usuarios. De igual manera si es igual a cero entonces los usuarios
              * son almacenados dentro un Array, si es distinto a cero devuelve un response.data generado por la promesa.
-             * @param {*} id 
+             * @param {*} id
              */
             getUsuarios:function(id){
                 this.loading=true;
@@ -46,19 +47,29 @@ function init(){
                     this.$http.get(route + urlUsuarios + "/" + id).then
                         (function(response){
                         console.log(response);
-                        this.arrUsuarios = response.data;
+                        this.arrSingleUserById = response.data;
+                        for (usuario in this.arrSingleUserById) {
+                            this.id_usuario = this.arrSingleUserById[usuario].id_usuario;
+                            this.id_rol = this.arrSingleUserById[usuario].id_rol;
+                            this.nombre = this.arrSingleUserById[usuario].nombre;
+                            this.apellido_p = this.arrSingleUserById[usuario].apellido_p;
+                            this.apellido_m = this.arrSingleUserById[usuario].apellido_m;
+                            this.usuario = this.arrSingleUserById[usuario].usuario;
+                            this.password = this.arrSingleUserById[usuario].password;
+                            this.imagen = this.arrSingleUserById[usuario].imagen;
+                      }
+                      this.showModal(true);
                         this.loading=false;
                     })
                 } else {
                     this.$http.get(route + urlUsuarios).then
                     (function(response){
-                        this.loading=true;
                         console.log(response);
                         this.arrUsuarios = response.data;
                         this.loading=false;
                     })
                 }
-               
+
             }, //fin getUsuarios
             getRoles:function(){
                     this.$http.get(route + urlRoles).then(function(response){
@@ -75,25 +86,13 @@ function init(){
             },
             editUser:function(id) {
                 this.editar = true;
-                //this.getRoles;
-               
+                this.getRoles;
+
                 this.getUsuarios(id);
-               if (!this.loading) {
-                for (var usuario in this.arrUsuarios) {
-                this.id_usuario = usuario.id_usuario;
-                this.id_rol = usuario.id_rol;
-                this.nombre = usuario.nombre;
-                this.apellido_p = usuario.apellido_p;
-                this.apellido_m = usuario.apellido_m;
-                this.usuario = usuario.usuario;
-                this.password = usuario.password;
-                this.imagen = usuario.imagen;
-                this.showModal(true);
-                }
-               }
-               
-                
-                
+
+
+
+
             },
             showModal:function(bool){
                 if (bool == true) {
@@ -102,7 +101,7 @@ function init(){
                     this.Vacio();
 				    $('#ventana_modal').modal('hide');
                 }
-				
+
 			},
 
 			Cancelar:function(){
@@ -112,7 +111,7 @@ function init(){
 
 			},
         } // fin methods
-    
+
     })
 }
 window.onload=init;
