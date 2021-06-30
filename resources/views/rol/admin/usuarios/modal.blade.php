@@ -5,8 +5,8 @@
       <div class="modal-body">
             <div class="card card-primary">
                 <div class="card-header">
-                <h3 class="card-title" v-if="!editar">Proporcionar datos del usuario (Alta)</h3>
-                <h3 class="card-title" v-if="editar">Proporcionar datos del usuario (Modificar)</h3>
+                    <h3 class="card-title" v-if="!editar">Proporcionar datos del usuario (Alta)</h3>
+                    <h3 class="card-title" v-if="editar">Proporcionar datos del usuario (Modificar)</h3>
                 </div>
             
                 <div class="card-body">
@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="examplerol">Rol</label>
-                            <select class="form-control" v_model="rol" id="examplerol">
+                            <select class="form-control" id="examplerol">
                                 <option value="admin">admin</option>
                             </select>
                         </div>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="examplepassword">Password</label>
-                            <input type="password" class="form-control" id="exampleapassword" name="password" placeholder="Password">
+                            <input type="password" class="form-control" id="exampleapassword" v-model="password" placeholder="Password">
                         </div>
                     </div>
                     <div class="row">
@@ -56,7 +56,7 @@
                             <label for="exampleInputFile">Subir Imagen</label>
                             <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="imagen" v-model="imagen">
+                                <input type="file" class="custom-file-input" id="imagen">
                                 <label class="custom-file-label" for="exampleInputFile">Examinar...</label>
                             </div>
                             <div class="input-group-append">

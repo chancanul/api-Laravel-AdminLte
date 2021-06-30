@@ -74,6 +74,8 @@ class controllerusuario extends Controller
     public function show($id)
     {
         //
+        $usuarios = apiusuarios::find($id);
+        return response()->json($usuarios, 200);
     }
 
     /**

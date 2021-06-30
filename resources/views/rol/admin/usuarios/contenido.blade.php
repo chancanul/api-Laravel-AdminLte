@@ -19,24 +19,26 @@
               <div class="row">
                       <div class="col-lg-12">
                           <div class="card">
-                              <div class="card-header">
-                                  <h3 class="card-title">Listado de usuarios activos</h3>
-                                  <div class="card-tools">
-                                  <form method="POST" action="{{ url('usuario/buscar') }}">
-                                      {{ csrf_field() }}
-                                      <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="buscar" class="form-control float-right" placeholder="Buscar">
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                <div class="card-header">
+                                    <h3 class="card-title">Listado de usuarios activos</h3>
+                                    <div class="card-tools">
+                                      <form method="POST" action="{{ url('usuario/buscar') }}">
+                                        {{ csrf_field() }}
+                                        <div class="input-group input-group-sm" style="width: 150px;">
+                                          <input type="text" name="buscar" class="form-control float-right" placeholder="Buscar">
+                                          <div class="input-group-append">
+                                              <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                          </div>
                                         </div>
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
-                                  <!-- /.card-header -->
+                                      </form>
+                                    </div>
+                                  </div><!--card-header-->
+                                  
                                   <div class="card-body table-responsive p-0">
                                     <table class="table table-hover text-nowrap">
                                       <thead>
+                                        <th>Clave</th>
+                                        <th>Clave rol</th>
                                         <th>Nombre</th>
                                         <th>Apellido Paterno</th>
                                         <th>Apellido Materno</th>
@@ -55,6 +57,8 @@
                                               <td>{{ $usuario -> rol}}</td>
                                               <td>{{ $usuario -> usuario}}</td>
                                               <td>{{ $usuario -> password}}</td> --}}
+                                              <td>@{{ users.id_usuario }}</td>
+                                              <td>@{{ users.id_rol }}</td>
                                               <td>@{{ users.nombre }}</td>
                                               <td>@{{ users.apellido_p }}</td>
                                               <td>@{{ users.apellido_m }}</td>
@@ -66,23 +70,16 @@
                                                 <img v-bind:src="`${rutaImagenes}/${users.imagen}`" class="img-thumbnail" alt="" width="50">
                                               </td>
                                               <td>
-                                                  <form method="POST" action="" >
-                                                      <a href="#">
-                                                        <span class="btn btn-active"><i class="fa fa-user-edit"></i></span>
-                                                      </a>
-                                                      <button class="btn btn-active btn-xs float-right" type="submit" onclick="return confirm('Desea eliminar el usuario?');"><i class="fa fa-user-times"></i></button>
-                                                  </form>
+                                                     <button v-on:click="editUser(users.id_usuario)" class="btn btn-active"><i class="fa fa-user-edit"></i></button>
+                                                     <button class="btn btn-active btn-xs float-right" type="submit" onclick="return confirm('Desea eliminar el usuario?');"><i class="fa fa-user-times"></i></button>
                                               </td>
                                             </tr>
                                       </tbody>
                                     </table>
                                   </div>
-                                  <!-- /.card-body -->
-                          </div>
-                    
-                  </div>
-                        <!-- /.row -->
-              </div><!-- /.container-fluid -->
+                          </div><!-- card -->
+                  </div><!--col-lg-12-->    
+              </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div> <!-- content -->
     @include('rol.admin.usuarios.modal')
