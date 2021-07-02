@@ -8,7 +8,7 @@
                     <h3 class="card-title" v-if="!editar">Proporcionar datos del usuario (Alta)</h3>
                     <h3 class="card-title" v-if="editar">Proporcionar datos del usuario (Modificar)</h3>
                 </div>
-
+               <form role="form" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row">
                         <div v-if="!loading" class="form-group col-md-6">
@@ -38,7 +38,7 @@
                             </select>
                         </div>
                         <div v-if="editar" class="col-md-6 text-center">
-                            {{--<img class="rounded-circle" v-bind:src="`${urlImages}/${imagen}`" alt="" width="100">--}}
+                            <img class="rounded-circle" :src="image" alt="foto" width="100" height="100">
                         </div>
                     </div>
                     <div class="row">
@@ -55,13 +55,13 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Subir Imagen</label>
                             <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="imagen">
-                                <label class="custom-file-label" for="exampleInputFile">Examinar...</label>
-                            </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="">Subir</span>
-                            </div>
+                                <div class="custom-file">
+                                    <input type="file" @change="readImagen" class="custom-file-input" id="imagen" name="imagen">
+                                    <label class="custom-file-label" for="exampleInputFile">Examinar...</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="">Upload</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -75,8 +75,9 @@
                 </div>
 
             </div> {{--Fin de card-primary--}}
-
+        </form> {{--fin the form--}}
       </div>{{--fin modal-body--}}
     </div>
   </div>
 </div>
+

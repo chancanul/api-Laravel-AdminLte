@@ -32,6 +32,7 @@ function init(){
             editar:false,
             check:false,
             loading:false,
+            thumbnail:""
         },
         methods:{
             /**
@@ -71,6 +72,10 @@ function init(){
                 }
 
             }, //fin getUsuarios
+            saveUser:function() {
+                let formData = new FormData();
+                formData.append()
+            },
             getRoles:function(){
                     this.$http.get(route + urlRoles).then(function(response){
                         console.log(response);
@@ -114,8 +119,28 @@ function init(){
                 this.usuario = "";
                 this.password = "";
                 this.imagen = "";
+            },
+            readImagen:function(e) {
+                let file = e.target.files[0];
+                this.imagen = file;
+                this.loadImage(file);
+            },
+            loadImage(file){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    this.thumbnail = e.target.result;
+
+                }
+                reader.readAsDataURL(file);
             }
-        } // fin methods
+
+        }, // fin methods
+
+        computed: {
+            image() {
+                return this.thumbnail;
+            }
+        }
 
     })
 }

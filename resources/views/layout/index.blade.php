@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <!--
 This is a starter template page. usa this page to start your nuevo project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
+scratch. This page gets rid of all links and provides the needed markup only.-->
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -18,7 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Vue Js-->
     <meta name="token" id="token" value="{{ csrf_token() }}">
     <script src="{{URL::asset('dist/js/vue/vue.js')}}"></script>
-    <script src="{{URL::asset('dist/js/vue/vue-resource.js')}}"></script>>
+    <script src="{{URL::asset('dist/js/vue/vue-resource.js')}}"></script>
 </head>
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -73,9 +72,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
               </div>
               <!-- Message End -->
-            </a> 
+            </a>
             <div class="dropdown-divider"></div>
-          <a href="{{url('logout')}}" class="dropdown-item dropdown-footer"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+           <a href="{{url('logout')}}" class="dropdown-item dropdown-footer"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
           </div>
         </li>
         <!-- Notifications Dropdown Menu -->

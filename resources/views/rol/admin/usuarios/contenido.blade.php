@@ -83,5 +83,8 @@
       </div><!-- /.container-fluid -->
     </div> <!-- content -->
     @include('rol.admin.usuarios.modal')
+
 </div> <!--Fin de Vue-->
+
+
 <script src="{{URL::asset('dist/js/vue/admin/usuarios.js')}}"></script>
