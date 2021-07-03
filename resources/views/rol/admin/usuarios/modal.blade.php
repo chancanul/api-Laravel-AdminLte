@@ -37,7 +37,7 @@
                                 <option value="admin">admin</option>
                             </select>
                         </div>
-                        <div v-if="editar" class="col-md-6 text-center">
+                        <div class="col-md-6 text-center">
                             <img class="rounded-circle" :src="image" alt="foto" width="100" height="100">
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="button" class="btn btn-danger active" data-dismiss="modal" v-on:click="showModal(false)">Cancelar</button>
+                        <button type="button" class="btn btn-danger active" data-dismiss="modal" v-on:click="Cancelar()">Cancelar</button>
 
                         <button type="submit" class="btn btn-primary active" v-on:click="saveUser()" v-if="!editar" >Guardar</button>
 

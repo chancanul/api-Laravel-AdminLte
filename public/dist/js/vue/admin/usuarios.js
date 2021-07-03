@@ -96,11 +96,10 @@ function init(){
             },
             newUser:function() {
                 this.showModal(true);
-                this.limpiarData();
             },
             editUser:function(id) {
                 this.editar = true;
-                this.getRoles;
+                //this.getRoles;
                 this.getUsuarios(id);
             },
             showModal:function(bool){
@@ -127,6 +126,7 @@ function init(){
                 this.usuario = "";
                 this.password = "";
                 this.imagen = "";
+                this.editar = false;
             },
             readImagen:function(e) {
                 let file = e.target.files[0];
