@@ -68,7 +68,7 @@
                     <div class="card-footer">
                         <button type="button" class="btn btn-danger active" data-dismiss="modal" v-on:click="showModal(false)">Cancelar</button>
 
-                        <button type="submit" class="btn btn-primary active" v-on:click="agregarUsuario()" v-if="!editar" >Guardar</button>
+                        <button type="submit" class="btn btn-primary active" v-on:click="saveUser()" v-if="!editar" >Guardar</button>
 
                         <button type="submit" class="btn btn-primary active" v-on:click="ModificarUsuario(auxIdUsuario)" v-if="editar" >Actualizar</button>
                     </div>

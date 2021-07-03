@@ -74,7 +74,16 @@ function init(){
             }, //fin getUsuarios
             saveUser:function() {
                 let formData = new FormData();
-                formData.append()
+                formData.append('id_rol', '1');
+                formData.append('nombre', this.nombre);
+                formData.append('apellido_p', this.apellido_p);
+                formData.append('apellido_m', this.apellido_m);
+                formData.append('usuario', this.usuario);
+                formData.append('password', this.password);
+                formData.append('imagen', this.imagen);
+                this.$http.post(route + urlUsuarios, formData).then(function(response){
+                    alert('El usuario se agregó con éxito')
+                })
             },
             getRoles:function(){
                     this.$http.get(route + urlRoles).then(function(response){
@@ -82,7 +91,6 @@ function init(){
                         this.arrRoles = response.data;
                     })
             },
-
             getUrlImagen:function(){
                 this.rutaImagenes = route + urlImages
             },
