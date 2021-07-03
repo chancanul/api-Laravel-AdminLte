@@ -15,7 +15,6 @@ function init(){
             this.getUsuarios(0);
         },
         data:{
-            selectImage:false,
             arrUsuarios:[],
             arrSingleUserById:[],
             arrRoles:[],
@@ -60,6 +59,10 @@ function init(){
                             this.password = this.arrSingleUserById[usuario].password;
                             this.imagen = this.arrSingleUserById[usuario].imagen;
                       }
+                      if(this.imagen != "") {
+                          this.thumbnail = this.rutaImagenes + this.imagen;
+                          this.image;
+                      }
                       this.showModal(true);
                         this.loading=false;
                     })
@@ -83,7 +86,22 @@ function init(){
                 formData.append('password', this.password);
                 formData.append('imagen', this.imagen);
                 this.$http.post(route + urlUsuarios, formData).then(function(response){
-                    alert('El usuario se agregó con éxito')
+                    alert('El usuario se agregó con éxito');
+                })
+            },
+            updateUser:function() {
+                let formData = new FormData();
+                formData.append('id_rol', '1');
+                formData.append('nombre', this.nombre);
+                formData.append('apellido_p', this.apellido_p);
+                formData.append('apellido_m', this.apellido_m);
+                formData.append('usuario', this.usuario);
+                formData.append('password', this.password);
+                formData.append('_method', 'put');
+                formData.append('imagen', this.imagen);
+                this.$http.post(route + urlUsuarios + "/" + this.id_usuario, formData).then(function(response){
+                    console.log(response);
+                    alert('El usuario se modificó con éxito');
                 })
             },
             getRoles:function(){
@@ -128,10 +146,8 @@ function init(){
                 this.password = "";
                 this.imagen = "";
                 this.editar = false;
-                this.selectImage = false;
             },
             readImagen:function(e) {
-                selectImage = true;
                 let file = e.target.files[0];
                 this.imagen = file;
                 this.loadImage(file);
@@ -140,7 +156,6 @@ function init(){
                 let reader = new FileReader();
                 reader.onload = (e) => {
                     this.thumbnail = e.target.result;
-
                 }
                 reader.readAsDataURL(file);
             }
