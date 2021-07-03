@@ -38,7 +38,8 @@
                             </select>
                         </div>
                         <div class="col-md-6 text-center">
-                            <img class="rounded-circle" :src="image" alt="foto" width="100" height="100">
+                            <img class="rounded-circle" v-if="!selectImage" v-bind:src="`${rutaImagenes}/${imagen}`" alt="foto" width="100" height="100">
+                            <img class="rounded-circle" v-if="selectImage" :src="image" alt="foto" width="100" height="100">
                         </div>
                     </div>
                     <div class="row">

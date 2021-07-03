@@ -15,6 +15,7 @@ function init(){
             this.getUsuarios(0);
         },
         data:{
+            selectImage:false,
             arrUsuarios:[],
             arrSingleUserById:[],
             arrRoles:[],
@@ -127,8 +128,10 @@ function init(){
                 this.password = "";
                 this.imagen = "";
                 this.editar = false;
+                this.selectImage = false;
             },
             readImagen:function(e) {
+                selectImage = true;
                 let file = e.target.files[0];
                 this.imagen = file;
                 this.loadImage(file);

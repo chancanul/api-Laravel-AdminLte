@@ -67,7 +67,7 @@
                                               <td>@{{ users.password }}</td>
                                               <td>
                                                 {{--<img class="img-thumbnail" src="{{ URL::asset('storage'.'/'.'app'.'/'.'public'.users.imagen)}}" alt="" width="50">--}}
-                                                {{--<img v-bind:src="`${rutaImagenes}/${users.imagen}`" class="img-thumbnail" alt="" width="50">--}}
+                                                <img v-bind:src="`${rutaImagenes}/${users.imagen}`" class="img-thumbnail" alt="" width="100">
                                               </td>
                                               <td>
                                                      <button v-on:click="editUser(users.id_usuario)" class="btn btn-active"><i class="fa fa-user-edit"></i></button>
