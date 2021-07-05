@@ -29,13 +29,16 @@ class logincontroller extends Controller
         if ($status == '200') {
             //Obtiene respuesta de la API
             $responseBody =  Http::post($url,['usuario' => $request->usuario, 'password' => $request->password])->body();
-            if($responseBody != "fail") {
+            if($responseBody != "null") {
 
-                $data = json_decode($responseBody, true);
-                $nombre = $data['nombre'];
-                $rol = $data['roles']['nombre'];
-                $imagen = $data['imagen'];
-
+               $data = json_decode($responseBody, true);
+                var_dump($data);
+                foreach($data as $user) {
+                    $nombre = $user['nombre'];
+                    $rol = $user['roles']['nombre'];
+                    $imagen = $user['imagen'];
+                    
+                }
                 Session::put('usuario', $nombre);
                 Session::put('rol', $rol);
                 Session::put('imagen', $imagen);

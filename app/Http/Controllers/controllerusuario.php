@@ -17,10 +17,9 @@ class controllerusuario extends Controller
         $filtro = apiusuarios::where('usuario','=',$request->usuario, 'and')->where('password', '=', $request->password)->first();
         if($filtro != null) {
            // $respuesta = 'ok';
-           $respuesta = response()->json($filtro, 200);
+           $respuesta = response()->json([$filtro], 200);
         } else {
-            //$respuesta = 'fail';
-            $respuesta = 'fail';
+            $respuesta = response()->json([$filtro], 200);
         }
         return $respuesta;
      }
