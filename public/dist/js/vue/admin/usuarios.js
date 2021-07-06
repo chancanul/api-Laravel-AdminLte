@@ -106,20 +106,34 @@ function init(){
              * Método para modificar los datos del usuario
              */
             updateUser:function() {
-                let formData = new FormData(); //por multiparte
-                formData.append('id_rol', '1');
-                formData.append('nombre', this.nombre);
-                formData.append('apellido_p', this.apellido_p);
-                formData.append('apellido_m', this.apellido_m);
-                formData.append('usuario', this.usuario);
-                formData.append('password', this.password);
-                formData.append('_method', 'put');
-                formData.append('imagen', this.imagen);
-                this.$http.post(route + urlUsuarios + "/" + this.id_usuario, formData).then(function(response){ //inicio de la promesa
-                    console.log(response); // en caso de +exito
-                    alert('El usuario se modificó con éxito');
-                })
-            },
+                
+                        let formData = new FormData(); //por multiparte
+                        formData.append('id_rol', '1');
+                        formData.append('nombre', this.nombre);
+                        formData.append('apellido_p', this.apellido_p);
+                        formData.append('apellido_m', this.apellido_m);
+                        formData.append('usuario', this.usuario);
+                        formData.append('password', this.password);
+                        formData.append('_method', 'put');
+                        formData.append('imagen', this.imagen);
+
+                        this.$http.post(route + urlUsuarios + "/" + this.id_usuario, formData).then(function(response){ //inicio de la promesa
+                            console.log(response); // en caso de +exito
+                            Swal.fire({
+                                target: document.getElementById('ventana-modal'),
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Aviso del sistema!',
+                                showConfirmButton: true,
+                                text: "El usuario fue editado con éxito",
+                                timer: 2000,
+                               // confirmButtonText: "Aceptar",
+                              });
+                              this.Cancelar();
+                              this.getUsuarios(0);
+                        })   //fin de promesa      
+                
+            },//Fin de updateUser
             /**
              * método para traer los roles
              */

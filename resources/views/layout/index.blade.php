@@ -8,6 +8,9 @@ scratch. This page gets rid of all links and provides the needed markup only.-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>AdminLTE 3 | Starter</title>
+    <!--Mensajes enriquecidos-->
+    <link rel="stylesheet" href="{{URL::asset('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('plugins/toastr/toastr.min.css')}}">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{URL::asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
@@ -153,6 +156,9 @@ scratch. This page gets rid of all links and provides the needed markup only.-->
   <script src="{{ URL::asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <!-- AdminLTE App -->
   <script src="{{ URL::asset('dist/js/adminlte.min.js') }}"></script>
+
+  <script src="{{URL::asset('plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+  <script src="{{URL::asset('plugins/toastr/toastr.min.js')}}"></script>
   <!-- bs-custom-file-input -->
   <script src="{{ URL::asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script type="text/javascript">
