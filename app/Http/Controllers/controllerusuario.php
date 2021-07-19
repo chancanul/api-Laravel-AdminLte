@@ -61,7 +61,7 @@ class controllerusuario extends Controller
         }
         $usuario->imagen = $imagen;
         $usuario->save();
-        return response()->json($usuario,200);
+        return response()->json([$usuario],200);
     }
 
     /**
